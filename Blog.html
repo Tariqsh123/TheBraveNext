@@ -115,9 +115,13 @@
             }
           ]
         }
-        </script>
-        
-    <!-- SCHEMA End-->
+        </script><!-- SCHEMA End-->
+
+        <script>
+            if (window.location.pathname.endsWith(".html")) {
+              window.history.replaceState({}, document.title, window.location.pathname.replace(".html", ""));
+            }
+          </script>
 </head>
 <body>
 <!-- cursor -->
