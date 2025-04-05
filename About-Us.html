@@ -114,11 +114,14 @@
           ]
         }
         </script>
-            <script>
-                if (window.location.pathname.endsWith(".html")) {
-                  window.history.replaceState({}, document.title, window.location.pathname.replace(".html", ""));
-                }
-        </script>
+        <script>
+            // Check if the current page is an HTML file and the URL ends with .html
+            if (window.location.pathname.endsWith(".html") && !window.location.pathname.endsWith("/")) {
+              // Replace the state without causing issues on page reload
+              window.history.replaceState({}, document.title, window.location.pathname.replace(".html", ""));
+            }
+          </script>
+          
 </head>
 <body>
 
