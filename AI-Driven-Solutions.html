@@ -115,32 +115,7 @@
         }
         </script>
         
-        <script>
-            (function() {
-                const currentPath = window.location.pathname;
-                
-                // Check if URL ends with ".html"
-                if (!currentPath.endsWith(".html")) {
-                  // Attempt to load the page with .html extension
-                  const newPath = currentPath + ".html";
-                  
-                  fetch(newPath)
-                    .then(response => {
-                      if (response.ok) {
-                        // If the file exists, update the URL without reloading
-                        window.history.replaceState({}, document.title, newPath);
-                      } else {
-                        // If the file doesn't exist, do nothing or handle error
-                        console.error("Page not found");
-                      }
-                    })
-                    .catch(err => {
-                      console.error("Error checking URL:", err);
-                    });
-                }
-              })();
-            </script>
-          
+        
 </head>
 <body>
 

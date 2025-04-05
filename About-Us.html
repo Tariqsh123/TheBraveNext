@@ -114,27 +114,8 @@
           ]
         }
         </script>
-        <script>
-            // Check if the page is initially loaded with .html
-            if (window.location.pathname.endsWith(".html") && !window.location.pathname.endsWith("/")) {
-              // Add .html temporarily after page load
-              window.history.replaceState({}, document.title, window.location.pathname + ".html");
-            }
-          
-            // Listen for the page load event
-            window.addEventListener("load", function () {
-              // Ensure that .html is removed after the page is fully loaded
-              setTimeout(function () {
-                if (window.location.pathname.endsWith(".html")) {
-                  // Remove .html from the URL after page load
-                  window.history.replaceState({}, document.title, window.location.pathname.replace(".html", ""));
-                }
-              }, 100);
-            });
-          </script>
-          
-          
-          
+        
+        
 </head>
 <body>
 
