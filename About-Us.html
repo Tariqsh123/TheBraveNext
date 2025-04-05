@@ -115,12 +115,30 @@
         }
         </script>
         <script>
-            // Check if the current page is an HTML file and the URL ends with .html
-            if (window.location.pathname.endsWith(".html") && !window.location.pathname.endsWith("/")) {
-              // Replace the state without causing issues on page reload
-              window.history.replaceState({}, document.title, window.location.pathname.replace(".html", ""));
+            // Function to handle URL change based on reload state
+            function handleUrl() {
+              // If the URL ends with .html and it's not a directory, replace it
+              if (window.location.pathname.endsWith(".html") && !window.location.pathname.endsWith("/")) {
+                // Replace .html with an empty string and update the browser history
+                window.history.replaceState({}, document.title, window.location.pathname.replace(".html", ""));
+              }
             }
+          
+            // Detect if the page is reloaded or freshly loaded
+            window.addEventListener("load", function () {
+              // Timeout to ensure the page is fully loaded before modifying the URL
+              setTimeout(function () {
+                if (!window.location.pathname.endsWith(".html")) {
+                  // On reload, add .html back to the URL and reload the page
+                  window.history.replaceState({}, document.title, window.location.pathname + ".html");
+                }
+              }, 100);
+            });
+          
+            // Call the function when the page is loaded
+            handleUrl();
           </script>
+          
           
 </head>
 <body>
